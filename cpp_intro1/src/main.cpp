@@ -66,7 +66,7 @@ int &functionThatReturnsAReference();
 
 /************************************/
 //namespace declaration
-//a namespace is "name" that we use to identify, group, and refer to objects such as variables, functions, classes, etc.
+//a namespace is a "name" that we use to identify, group, and refer to objects such as variables, functions, classes, etc.
 //these are useful when we have objects having the same name and we want to differentiate them by placing them in different namespaces
 
 namespace csci303 {
