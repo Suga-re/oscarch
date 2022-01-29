@@ -10,23 +10,25 @@ Projects:
 
 # How can you run each project?
 
-First of all, you need to clone this repository on your machine (by running `git clone [url_of_this_repository]` on the terminal). 
+First of all, you need to clone this repository on your machine (by running `git clone [url_of_this_repository]` on the terminal) -- git should be installed on your machine. 
 If you have cloned the repo and need to update your local copy of the repo, you can open the terminal, go to the directory of the repo, and run `git pull`.
 
-Each project can be run through the command line (terminal) or through the CLion IDE, once g++, cmake, and CLion are installed on your machine.
+A C++ project can be run through the command line (terminal) or through the CLion IDE, once g++, cmake, and CLion are installed on your machine.
 
 ## Running a project through the command line
 
-Each project contains two scripts:
+Each project should contain two scripts:
 * `build-run-unix.sh`: this one is for compiling/running the program on Linux or MacOS
 * `build-run-win-msys2.sh`: this one is for compiling/running the program on Windows (through the "MSYS2 MinGW" terminal, not the Windows terminal)
 
-On **Linux and MacOS**, open a terminal, go the directory of the project you want to run (e.g., `cd cmake_base_project`), and run the script: `./build-run-unix.sh`. 
+On **Linux and MacOS**, open a terminal, go the directory of the project you want to run (e.g., `cd /home/[path_to_repo]/a0/cmake_base_project`), and run the script: `./build-run-unix.sh`. 
 You may need to add execution permissions to the script by running `chmod +x ./build-run-unix.sh`
 
-On **Windows**, open the **MSYS2 MinGW** terminal (not the Windows terminal), go the directory of the project you want to run (e.g., `cd cmake_base_project`), and run the script: `./build-run-win-msys2.sh`. 
+On **Windows**, open the **MSYS2 MinGW** terminal (not the Windows terminal), go the directory of the project you want to run (e.g., `cd /c/Users/[path_to_repo]/cmake_base_project`), and run the script: `./build-run-win-msys2.sh`. 
 
-*Note*: sometimes, when you experience weird compilation errors, you may need to compile from scratch. In that case, before running the scrips above, you need to delete  the `build-unix` or `build-win-msys2` directories (e.g., `rm -r build-win-msys2`)
+Once the script is executed, you should see the output of the program on the terminal.
+
+*Note*: sometimes, when you experience weird compilation errors, you may need to compile from scratch. In that case, before running the scrips above, you need to delete the `build-unix` or `build-win-msys2` directories (e.g., `rm -r build-win-msys2`)
 
 ## Running a project through CLion
 
@@ -36,6 +38,8 @@ Follow the next steps after you have configured CLion correctly (*Note*: Mac use
 
 Open CLion, click on `File --> Open...` (on the menu bar), select the directory of the project you want to run, and click `OK`.
 
-Once the project is loaded (it may take a minute), click on `Build --> Build project` (on the menu bar), wait until it finishes compiling and creating the executable, and then click on `Run --> Run '[name_of_the_executable]'`
+Once the project is loaded (it may take a minute), click on `Build --> Build project` (on the menu bar), wait until it finishes compiling and creating the executable, and then click on `Run --> Run '[name_of_the_executable]'` (or just click the green triangle icon on the menu bar)
+
+Once these steps are completed, you should see the output of the program on the "Run" panel of CLion.
 
 *Note*: if there is any problem with building the project, you may want to retry reloading the project. You can do so by clicking `File --> Reload CMake project` (on the menu bar)
