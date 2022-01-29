@@ -19,7 +19,7 @@ int main() {
     //printing the result
     cout << "Sum = " << sum << endl;
 
-    //compute the average
+    //compute the average of the first n integers
     float avg = MathUtilities().average(sum, n);
     cout << "Avg = " << avg << endl;
 

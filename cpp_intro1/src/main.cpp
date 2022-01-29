@@ -17,12 +17,13 @@ This is a multi-line comment
  */
 
 #include <iostream> //include statement for shared libraries (e.g., C++ Standard Library)
-//#include "myFunctions.cpp" // include statement for our own code (bad practice to include .cpp, we usually include .h files)
+//#include "myFunctions.cpp" // include statement for our own code (bad practice to include .cpp, we usually include .h files, as shown in the line below)
 #include "myFunctions.h"
 
 
 /************************************/
 //function declarations (these are the signatures of the functions)
+//we usually have to declare our own functions
 void arithmeticOperations();
 
 void booleanComparisons();
@@ -65,6 +66,8 @@ int &functionThatReturnsAReference();
 
 /************************************/
 //namespace declaration
+//a namespace is "name" that we use to identify, group, and refer to objects such as variables, functions, classes, etc.
+//these are useful when we have objects having the same name and we want to differentiate them by placing them in different namespaces
 
 namespace csci303 {
     int integer3 = 10;
@@ -81,7 +84,7 @@ using namespace csci303;
 using namespace std; //this namespace is defined in the C++ standard library
 
 
-//the main function is entry point of the program
+//the main function is the entry point of the program
 int main() {
 
     //statements in C++ end with a semicolon: ;
@@ -129,8 +132,11 @@ int main() {
 
 void inputAndOutput() {
 
-    //this is a block with its own scope
+    //this is a block of code that encloses statements and objects
+    //a block defines its own scope, which means that objects within that scope cannot be used outside of it
     {
+		
+		//this is variable declaration of type float (a number with decimals, i.e., a real number)
         float number;
 
         //print something in the terminal
@@ -143,7 +149,7 @@ void inputAndOutput() {
 
     }
 
-    //I can't use number because it is not declared in this scope, but in a different one (as shown above).
+    //I can't use the variable number because it is not declared in this scope, but in a different one (as shown above).
     //the compiler will detect the error for you.
     //number = 8 ;
 }
@@ -159,12 +165,13 @@ void variablesAndTypes() {
     //this is a variable declaration, with no initialization
     int iAmAVariable;
 
+    //this will print a "rubish" value (one that we don't recognize)
     cout << iAmAVariable << endl;
 
     //this is a variable declaration and the variable is initialized with a value
     int integer2 = 10;
 
-    //variables and types
+    //variables of different types
     int integer = 45;
     short int smallerInteger = 56; //an integer of 2 bytes rather than 4 bytes
     bool boolean = true;
@@ -175,16 +182,16 @@ void variablesAndTypes() {
     char aString[30] = "This is a string";
     string anotherString = "This is another string";
 
-    //auto can be any type, however, auto variables must be initialized when declared.
-    //the actual type is inferred by the compiler based on the initialization value
+    //auto avoids having to specify the type of variable, however, auto variables must be initialized when declared.
+    //the actual variable type is inferred by the compiler based on the initialization value
     auto anotherNumber = 12.56;
 
     //however, once the type is inferred, a variable can only hold values of that type during the whole program execution.
     //attempting to set values of another type will lead to compilation errors.
-    //for example, this is not valid:
+    //for example, this is not valid (setting a string into a real number variable):
     //anotherNumber = anotherString;
 
-    //this is a constant
+    //this is a constant variable (its value cannot be changed)
     const int constant1 = 10;
     //not valid:
     //constant1 = 20;
@@ -204,8 +211,7 @@ void typeModifiers() {
 
     cout << character3 << endl; //it will print the character corresponding to the ascii 123: {
 
-    //here it is shown how the modifiers are used and the respective amount of memory space the variable use as well as
-    //the value range of each variable
+    //below we show how the modifiers are used and the respective amount of memory space the variables use and the value range of each variable
 
     int integer1 = 2147483647; //4 bytes ; //-2147483648 to 2147483647
     unsigned int integer2 = 4294967295; //4 bytes ; //0 to 4294967295
@@ -243,21 +249,23 @@ void arithmeticOperations() {
     number2 = integer * number;
     number2 = integer / number;
     number2 = integer % integer2; //MODULO operation
-    number2 = integer++; //integer is increment by 1 and then assigned to number2
+    number2 = integer++; //integer is incremented by 1 and then assigned to number2
     number2 = integer--; //integer is decremented by 1 and then assigned to number2
-    number2 = -integer; //changing to the negative integer
-    number2 = +integer; //changing to the positive integer
+    number2 = -integer; //the negative value of integer set to number2
+    number2 = +integer; //the positive value of integer set to number2
 }
 
 void booleanComparisons() {
+	
+	//true/false variables
     bool boolean = true;
     bool boolean2 = false;
 
     int integer2 = 10, integer = 5;
 
-    //comparisons
-    bool result = integer == integer2; //equals to
-    result = integer != integer2; //different than
+    //boolean comparisons
+    bool result = integer == integer2; //equals to?
+    result = integer != integer2; //different than?
     result = integer < integer2;
     result = integer <= integer2; //less than or equals to
     result = integer > integer2;
@@ -304,7 +312,7 @@ void operatorPrecedence() {
     cout << "Result1 is: " << result1 << endl;
     cout << "Result2 is: " << result2 << endl;
 
-    //logical/conditional operators
+    //now, let's see the evaluation order of logical/conditional operators
 
     bool d = true, e = false, f = true, result3 = false, result4 = false;
 
@@ -326,8 +334,8 @@ void functionCalls() {
     //function calls
     int integer = function1(); //calling a function with no parameters and a return
     integer = function2(12);
-    integer = function3(result, number); //multiple parameters
-    function4(); //a function that does not return anything (it is void)
+    integer = function3(result, number); //passing multiple parameters
+    function4(); //a call to a function that does not return anything (it is void)
 
     cout << "The result is: " << integer << endl;
 }
@@ -339,7 +347,7 @@ void branchStatements() {
     int integer2 = 11;
     if (integer2 > 0)
         cout << "integer2 > 0" << endl;
-        //cout << "bla bla"; //This is incorrect, sometimes the error is detected by the compiler, sometimes it is not
+        //cout << "bla bla"; //uncommenting this statement would be incorrect and lead to an error, sometimes the error is detected by the compiler, sometimes it is not
     else
         cout << "integer2 <= 0" << endl;
 
@@ -352,7 +360,7 @@ void branchStatements() {
     }
     cout << endl;
 
-    //this is if without an else
+    //this is an if statement (i.e., without an else)
     if (integer2 > 0)
         cout << "integer2 > 0" << endl;
 
@@ -375,7 +383,7 @@ void branchStatements() {
         case 3:
             cout << "integer2 is 3" << endl;
             break;
-            //this is the "else" of the switch statement
+            //the default case is the "else" of the switch statement
         default:
             cout << "This is the default case" << endl;
             break;
@@ -400,7 +408,7 @@ void singleDimensionArrays() {
 
     //arrays are variables that hold contiguous values in memory.
 
-    //the indices of the elements of arrays in C++ start with 0,
+    //the indices of the elements of arrays in C++ start at 0,
     // i.e., 0 is used to access the first element, 1 for the 2nd element, 2 for the 3rd, etc.
 
     int arrayOfIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -422,14 +430,14 @@ void loops() {
     //     for (initializer; condition; update){
     //         ....
     //     }
-    // where initializer is an (optional) expression that initializes a variable (typically a counter),
+    // where the initializer is an (optional) expression that initializes a variable (typically a counter),
     // the condition is an (optional) boolean expression that makes the loop to execute its internal code while the condition evaluates to true,
     // and the update is an (optional) arithmetic expression that increments or decrements the variable used in the initializer
 
     //this is a for loop with only the condition.
     //the for loop is executed until counter < 20 is false (i.e., it executes while counter < 20  is true)
     int counter = 10;
-    for (/*initialization*/; counter < 20;/*update*/) {
+    for (/*initialization*/; counter < 20; /*update*/) {
         cout << "counter is " << counter << endl;
         counter++;
     }
@@ -445,7 +453,7 @@ void loops() {
     cout << "--------------------" << endl;
 
     //for loop with the initializer, condition, and update statements.
-    //it prints an array in the format: [i1, i2, ...]
+    //this block of code prints an array in the format: [i1, i2, ...]
     int arrayOfIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     cout << "arrayOfIntegers is [";
     for (int counter2 = 0; counter2 < 9; counter2++) {
@@ -457,6 +465,7 @@ void loops() {
     cout << "--------------------" << endl;
 
     //this is a while loop, which only has the condition
+	//the loop executes while the condition is true
     counter = 10;
     while (counter < 20) {
         cout << "counter is " << counter << endl;
@@ -467,6 +476,7 @@ void loops() {
     cout << "--------------------" << endl;
 
     //this is a do-while loop, which also has the condition only
+	//the loop executes while the condition is true, but the condition is evaluated after the code inside the loop is executed (rather than before, as with the while loop)
     counter = 10;
     do {
         cout << "counter is " << counter << endl;
@@ -542,7 +552,7 @@ void pointers() {
     //arrays are related to pointers as seen here:
     const int arraySize = 10;
     int myArray[arraySize] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *myArrayPointer = myArray; //typically, array names decay into pointers (there are exceptions, though)
+    int *myArrayPointer = myArray; //typically, array names decay to pointers (there are exceptions, though)
 
     //we can do pointer arithmetic to access the elements of the array, as follows:
     int secondElement = *(myArrayPointer + 1); //accessing the second element of the array
@@ -592,7 +602,7 @@ void references() {
     //I can't do this, because a reference has to be declared and initialized at the same time
     //int &refToInteger2;
 
-    //passing a regular variable "by reference"
+    //passing a regular variable "by reference", i.e., the value of the integer is not copied into the function, but referenced in the function
     functionPassByReference(integer);
     cout << "integer was modified by the function: " << integer << endl;
 
@@ -612,6 +622,7 @@ int &functionThatReturnsAReference() {
 }
 
 void functionPassByReference(int &integer) {
+	//the reference variable will point to the parameter passed when calling the function, i.e., the parameter value is not copied as a new value in memory
     //modifying a reference (i.e., setting a value) here will modify the variable of the original variable.
     //a reference variable is set as a regular variable (with the operator =).
     integer = 67;
@@ -619,7 +630,8 @@ void functionPassByReference(int &integer) {
 
 void dynamicMemoryAllocation() {
 
-    //pointers and the "new" operator are used to allocate memory dynamically in the Heap.
+    //pointers and the "new" operator are used to allocate memory dynamically in the Heap 
+	//the Heap is a portion of memory that the programmer can control, as opposed to the Stack, which is controlled by the operating system automatically
     //the "delete" operator is used to deallocate variables from the Heap.
 
     int *pointer = new int(2); //new creates the integer 2 in the heap, rather than in the stack
@@ -627,7 +639,7 @@ void dynamicMemoryAllocation() {
     delete pointer; //memory is released
 
     //if you forget to delete local variables in this function, then you will create a memory leak
-    //memory leaks happen when variables are never deallocated, and they are not used anymore in the program
+    //memory leaks happen when variables are never deallocated and they are not used anymore in the program, thus creating a waste of memory
 
     //while the following compiles, it is incorrect, because we reference a memory space that is deallocated.
     //in some cases, this will crash the program:
@@ -647,11 +659,11 @@ void dynamicMemoryAllocation() {
             matrix[i][j] = 0.0;
     }
 
-    //print the matrix
+    //printing the matrix
     for (int i = 0; i < 4; i++)
         printArrayOfDoubles(5, matrix[i]);
 
-    //free up memory
+    //freeing up memory
     for (int i = 0; i < 4; i++)
         delete[] matrix[i];
     delete[] matrix;

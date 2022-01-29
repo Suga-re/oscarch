@@ -1,4 +1,4 @@
-//function declaration
+//function declaration in a header file
 
 int function1();
 
