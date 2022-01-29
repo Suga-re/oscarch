@@ -9,7 +9,7 @@
 #include <string>
 
 /*
- * This is a simple programmer-defined exception class, which inherits from the exception class (C+ std. lib).
+ * This is a simple programmer-defined exception class, which inherits from the exception class (from C++ standard library).
  *
  */
 class FoodException : public std::exception {
@@ -21,7 +21,7 @@ public:
         this->message = message;
     }
 
-    //the method what is a virtual method from the superclass that can be overridden here in the subclass
+    //the method "what" is a virtual method from the superclass that can be overridden here in the subclass
     virtual const char *what() const throw() {
         return message.c_str();
     }

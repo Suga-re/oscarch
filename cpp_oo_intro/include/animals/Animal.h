@@ -14,7 +14,7 @@ using namespace std;
  *
  * A class has internal data (attributes, field, or just variables) and operations that work on that data (methods or functions).
  *
- * A class can have multiple instances, with its own data.
+ * A class can have multiple instances, each one with its own data (with its own state).
  *
  * This is the abstract class Animal (this is the class declaration, the class implementation is found in Animal.cpp).
  * An abstract class represents an abstract concept that cannot be instantiated directly, but by using its subclasses.
@@ -24,7 +24,7 @@ using namespace std;
 class Animal {
 
     /*
-     * A class has one or more members, i.e., attributes (i.e., variables) and methods (i.e., functions)
+     * A class has one or more members, i.e., attributes (variables) and methods (functions)
      * The members can be private, protected, or public
      */
 
@@ -72,7 +72,7 @@ public:
     //these two are virtual functions, which are used to implement polymorphism in C++.
     //the "= 0" at the end of the methods indicates that they do not have definition/implementation in this class.
     //this is the main reason why we cannot instantiate this class directly, but through its subclasses.
-    //the subclasses must declare and implement these methods, unless they are declared virtual again
+    //the subclasses must declare and implement these methods, unless they are declared virtual again (in the subclasses)
 
     virtual void eat(string &food) = 0;
 
@@ -91,6 +91,8 @@ public:
     //----------------------------------------
 
     //these are called setters and getters, i.e., methods that allow setting and getting the value of private attributes from outside the class
+	//these methods and private/protected/public attributes are features to implement "encapsulation", a design principle that states that classes should 
+	//hide implementation details while defining a clear interface (a set of operations tha dictate the behavior of the class)
 
     const string &getName();
 

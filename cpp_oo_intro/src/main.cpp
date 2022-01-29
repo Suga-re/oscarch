@@ -18,8 +18,8 @@
 using namespace std;
 
 //the entry point of the program.
-//argc and argv parameters of the main function hold the arguments of the program, given in the command line:
-// argc is the number of arguments, and argv is the array of strings for the arguments
+//the argc and argv parameters of the main function hold the arguments of the program, given through the command line:
+//argc is the number of arguments, and argv is the array of strings for the arguments
 int main(int argc, char *argv[]) {
 
     //this illustrates how to check for the program arguments
@@ -31,9 +31,12 @@ int main(int argc, char *argv[]) {
         cout << "No program arguments were provided:" << endl;
 
     cout << "---------------------------" << endl;
+	
+	//see the other code files to know how to declare/implement your own classes
+	//the code below illustrates how to uses those classes (how to declare/use variables or instances of customized types/classes and how to use their operations/methods)
 
-    //abstract classes must be initialized with instances of their subclasses that are not abstract
-    // (i.e., concrete classes), and the variables should be pointers (in order to achieve polymorphic behavior)
+    //abstract classes must be initialized with instances of their subclasses that are not abstract (i.e., concrete classes),
+    //and the variables should be pointers (in order to achieve polymorphic behavior)
     Animal *alex = new Lion("Alex", "feline");
 
     string *description = nullptr; //this is how null pointers are initialized
@@ -57,7 +60,7 @@ int main(int argc, char *argv[]) {
 
     //a concrete class can be instantiated without a pointer.
     //notice how at the termination of the program, the destructor of the Animal class is called, because this variable
-    //is deallocated from the Stack when the program ends.
+    //is automatically deallocated (by the operating system) from the Stack when the program ends.
     Lion simba("simba");
 
     //--------------------------------

@@ -4,11 +4,12 @@
 
 #include "animals/Lion.h"
 
-//this is how the constructor of the superclass (Animal) is called
+//this is how the constructor of the superclass (Animal) is called (i.e., by the  Animal(name, type) expression defined in the constructor signature)
 Lion::Lion(string name, string type) : Animal(name, type) {
 
 }
 
+//once again, the Animal(name, "feline") expression calls the constructor of the superclass
 Lion::Lion(string name) : Animal(name, "feline") {
 
 }

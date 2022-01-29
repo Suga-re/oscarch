@@ -4,7 +4,7 @@
 
 #include "animals/Giraffe.h"
 
-
+//the Animal(name, "giraffe") expression calls the constructor of the superclass
 Giraffe::Giraffe(string name) : Animal(name, "giraffe") {
 
 }
