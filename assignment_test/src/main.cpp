@@ -40,7 +40,7 @@ int main() {
     int* number = new int(4); //variable that stores memory addresses
 
     cout<< number <<endl;
-    cout<< *number <<endl
+    cout<< *number <<endl;
 
     myfunction(number);
 
