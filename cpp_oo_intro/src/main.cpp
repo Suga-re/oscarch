@@ -31,6 +31,10 @@ int main(int argc, char *argv[]) {
         cout << "No program arguments were provided:" << endl;
 
     cout << "---------------------------" << endl;
+
+    //Animal myAnimal = Lion("l1", "feline"); //I cannot declare a regular variable of an abstract class, I need to use a pointer, as shown below
+
+    //---------------------------------------------
 	
 	//see the other code files to know how to declare/implement your own classes
 	//the code below illustrates how to uses those classes (how to declare/use variables or instances of customized types/classes and how to use their operations/methods)

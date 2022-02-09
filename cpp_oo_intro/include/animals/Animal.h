@@ -70,8 +70,11 @@ public:
     //--------------------------------------------------
 
     //these two are virtual functions, which are used to implement polymorphism in C++.
+    //a virtual function is one declared in the parent class and re-defined (overridden) by the subclasses.
+
     //the "= 0" at the end of the methods indicates that they do not have definition/implementation in this class.
     //this is the main reason why we cannot instantiate this class directly, but through its subclasses.
+    //in other words, it makes this class abstract
     //the subclasses must declare and implement these methods, unless they are declared virtual again (in the subclasses)
 
     virtual void eat(string &food) = 0;
